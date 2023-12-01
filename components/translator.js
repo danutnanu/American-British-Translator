@@ -3,7 +3,6 @@ const americanToBritishSpelling = require('./american-to-british-spelling.js');
 const americanToBritishTitles = require("./american-to-british-titles.js")
 const britishOnly = require('./british-only.js')
 
-
 const reverseDict = (obj) => {
     return Object.assign(
         {},
@@ -87,7 +86,7 @@ class Translator {
         }
 
 
-        if (!Object.keys(matchesMap).length === 0) return null;
+        if (Object.keys(matchesMap).length === 0) return null;
 
         console.log('matchesMap :>> ', matchesMap);
         const translation = this.replaceAll(text, matchesMap);
