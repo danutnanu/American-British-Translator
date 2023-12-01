@@ -8,11 +8,11 @@ module.exports = function (app) {
   app.route('/api/translate').post((req, res) => {
     console.log('req.body :>> ', req.body);
     const { text, locale } = req.body;
-    if (!locale || !text == undefined) {
+    if (!locale || text == undefined) {
       res.json({ error: 'Required field(s) missing' });
       return;
     }
-    if (text === '') {
+    if (text == '') {
       res.json({ error: 'No text to translate' });
       return;
     }
@@ -28,7 +28,7 @@ module.exports = function (app) {
     if (translation == text || !translation) {
       res.json({ text, translation: 'Everything looks good to me!' });
     } else {
-      res.json({ text, translation: translation[0] });
+      res.json({ text, translation: translation[1] });
     }
   });
 };
